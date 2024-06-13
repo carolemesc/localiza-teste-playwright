@@ -1,0 +1,22 @@
+{
+  "name": "localiza-teste-playwright",
+  "version": "1.0.0",
+  "description": "preparando para a vaga da Localiza",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolemesc/localiza-teste-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolemesc/localiza-teste-playwright/issues"
+  },
+  "homepage": "https://github.com/carolemesc/localiza-teste-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.14.2"
+  }
+}
