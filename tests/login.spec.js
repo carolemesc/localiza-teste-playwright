@@ -19,10 +19,14 @@ test.describe('Login', () => {
     await page.locator('#mat-input-0').fill(data.USER.EMAIL)
     await page.locator('#mat-input-1').fill(data.USER.SENHA)
     await page.waitForTimeout(1000)
-    await page.locator('.btn-localiza').click()
+    let btnEntrar = await page.locator('.btn-localiza').isVisible()
+    while (btnEntrar) {
+      await page.locator('.btn-localiza').click()
+      await page.waitForTimeout(1000)
+      btnEntrar = await page.locator('.btn-localiza').isVisible()
+    }
+    await page.waitForURL(data.APP.URL)
     await expect(page.getByTestId('loc-login')).toBeHidden()
-    const currentPageURLTESTE = page.url()
-    console.log(currentPageURLTESTE);
     await Helper.dismissCookie()
     await Helper.popupJourney()
     await expect(page.getByText(data.USER.NOME)).toBeVisible()
