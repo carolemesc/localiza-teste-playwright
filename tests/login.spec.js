@@ -23,7 +23,6 @@ test.describe('Login', () => {
     while (btnEntrar) {
       await page.locator('.btn-localiza').click()
       await page.waitForTimeout(1000)
-      console.log('passou aqui');
       btnEntrar = await page.locator('.btn-localiza').isVisible()
     }
     await page.waitForURL(data.APP.URL)
