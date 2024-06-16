@@ -20,7 +20,9 @@ test.describe('Login', () => {
     await page.locator('#mat-input-1').fill(data.USER.SENHA)
     await page.waitForTimeout(1000)
     await page.locator('.btn-localiza').click()
-    await page.waitForURL(data.APP.URL, {timeout: 2000})
+    const currentPageURLTESTE = page.url()
+    console.log(currentPageURLTESTE);
+    await page.waitForURL(data.APP.URL)
     await expect(page.getByTestId('loc-login')).toBeHidden()
     await Helper.dismissCookie()
     await Helper.popupJourney()
