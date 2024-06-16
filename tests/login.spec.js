@@ -22,7 +22,7 @@ test.describe('Login', () => {
     await page.locator('.btn-localiza').click()
     const currentPageURLTESTE = page.url()
     console.log(currentPageURLTESTE);
-    await page.waitForURL(data.APP.URL)
+    await page.waitForURL(`${data.APP.URL}**`)
     await expect(page.getByTestId('loc-login')).toBeHidden()
     await Helper.dismissCookie()
     await Helper.popupJourney()
