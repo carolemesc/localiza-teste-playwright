@@ -32,7 +32,7 @@ test.describe('Login', () => {
     await expect(page.getByText(data.USER.NOME)).toBeVisible()
   })
 
-  test.only('should not be possible to log in with invalid data', async () =>{
+  test('should not be possible to log in with invalid data', async () =>{
     await page.getByTestId('loc-login').click()
     await page.locator('#EmailCpf').click()
     await page.locator('#mat-input-0').fill('email@mail.com')
