@@ -16,11 +16,12 @@ test.describe('Login', () => {
     const Helper = helper(page)
     await page.getByTestId('loc-login').click()
     await page.locator('#EmailCpf').click()
+    await page.waitForTimeout(1000)
     await page.locator('#mat-input-0').fill(data.USER.EMAIL)
     await page.locator('#mat-input-1').fill(data.USER.SENHA)
     await page.waitForTimeout(1000)
     let btnEntrar = await page.locator('.btn-localiza').isVisible()
-    while (btnEntrar) { //esse while não é o ideal. existe um bug na ferramenta e mesmo depois do clique no botão "entrar". A intenção aqui é fazer a automação seguir os steps, não resolver um bug 
+    while (btnEntrar) { //esse while não é o ideal. pode ser que exista um bug na ferramenta e mesmo depois do clique no botão "entrar". A intenção aqui é fazer a automação seguir os steps, não resolver um bug 
       await page.locator('.btn-localiza').click()
       await page.waitForTimeout(1000)
       btnEntrar = await page.locator('.btn-localiza').isVisible()
@@ -39,7 +40,7 @@ test.describe('Login', () => {
     await page.locator('#mat-input-1').fill('password@')
     await page.waitForTimeout(1000)
     let errorMessage = await page.locator('#msgsAlerts').isHidden()
-    while (errorMessage) { //esse while não é o ideal. existe um bug na ferramenta e mesmo depois do clique no botão "entrar". A intenção aqui é fazer a automação seguir os steps, não resolver um bug 
+    while (errorMessage) { //esse while não é o ideal. pode ser que exista um bug na ferramenta e mesmo depois do clique no botão "entrar". A intenção aqui é fazer a automação seguir os steps, não resolver um bug 
       await page.locator('.btn-localiza').click()
       await page.waitForTimeout(2000)
       errorMessage = await page.locator('#msgsAlerts').isHidden()
